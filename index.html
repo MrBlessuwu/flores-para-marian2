@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Marian ✨🌻</title>
+    <style>
+        /* --- PALETA DE COLORES ---
+           Fondo Neutro: #FDFDF3 (Crema muy suave)
+           Textos/Bordes: #C7003E (Carmesí)
+           Pétalos 1: #FCEE8C (Amarillo Claro)
+           Pétalos 2: #FFD238 (Amarillo Oro)
+           Centros/Acentos: #FF9454 (Naranja)
+           Mágico/Detalles: #40E0D0 (Turquesa)
+        */
+
+        body {
+            background-color: #FDFDF3; /* Fondo Neutro */
+            color: #333;
+            font-family: 'Georgia', serif; /* Fuente más romántica */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            color: #C7003E;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-size: 3.5em;
+            margin-top: 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-text {
+            color: #FF9454;
+            font-size: 1.5em;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* =========================================
+           JARDÍN DE FONDO (Flores dispersas)
+           ========================================= */
+        .background-garden {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Importante: Detrás de todo */
+            overflow: hidden;
+            pointer-events: none; /* No interrumpen clics */
+        }
+
+        /* Estilos base para flores de fondo */
+        .b-flower {
+            position: absolute;
+            opacity: 0.6; /* Sutiles */
+            animation: floatBackground 15s linear infinite;
+        }
+
+        /* --- TIPO 1: Margarita Simple (Amarillo Claro) --- */
+        .flower-type-1 { width: 40px; height: 40px; }
+        .flower-type-1 .p { position: absolute; background: #FCEE8C; border-radius: 50%; width: 15px; height: 15px; }
+        .flower-type-1 .c { position: absolute; background: #FF9454; border-radius: 50%; width: 12px; height: 12px; top: 14px; left: 14px; z-index: 2; }
+        .flower-type-1 .p1 { top: 0; left: 12.5px; }
+        .flower-type-1 .p2 { top: 7px; right: 0; }
+        .flower-type-1 .p3 { bottom: 0; left: 12.5px; }
+        .flower-type-1 .p4 { top: 7px; left: 0; }
+
+        /* --- TIPO 2: Flor Redonda (Amarillo Oro) --- */
+        .flower-type-2 { width: 50px; height: 50px; background: #FFD238; border-radius: 50%; box-shadow: 0 0 10px rgba(255,210,56,0.4); }
+        .flower-type-2::after { content: ''; position: absolute; background: #FF9454; border-radius: 50%; width: 20px; height: 20px; top: 15px; left: 15px; }
+
+        /* --- TIPO 3: Tulipán Estilizado (Mezcla) --- */
+        .flower-type-3 { width: 30px; height: 40px; }
+        .flower-type-3 .p { position: absolute; background: #FFD238; border-radius: 15px 15px 0 0; width: 12px; height: 35px; bottom: 0; }
+        .flower-type-3 .p1 { left: 0; transform: rotate(-15deg); background: #FCEE8C; }
+        .flower-type-3 .p2 { left: 9px; z-index: 2; }
+        .flower-type-3 .p3 { right: 0; transform: rotate(15deg); background: #FCEE8C; }
+
+        /* Animación de flotación suave */
+        @keyframes floatBackground {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* =========================================
+           CONTENIDO PRINCIPAL (El Regalo)
+           ========================================= */
+        .main-gift-container {
+            position: relative;
+            z-index: 10; /* Delante del jardín */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- EL RAMO CENTRAL (Sigue siendo el foco) --- */
+        .bouquet {
+            position: relative;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .flower-main {
+            position: relative;
+            animation: sway 4s ease-in-out infinite alternate;
+            transform-origin: bottom center;
+        }
+
+        /* Posiciones del ramo central */
+        .flower-main.left { transform: scale(0.8) rotate(-25deg) translateX(-50px); z-index: 1; }
+        .flower-main.center { z-index: 10; transform: scale(1.1) translateY(-15px); }
+        .flower-main.right { transform: scale(0.8) rotate(25deg) translateX(50px); z-index: 1; }
+
+        .stem {
+            width: 10px;
+            height: 200px;
+            background: linear-gradient(to bottom, #40E0D0, #20b2aa); /* Tallo Turquesa */
+            position: absolute;
+            bottom: -170px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            box-shadow: 0 0 8px rgba(64, 224, 208, 0.3);
+        }
+
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            background-color: #40E0D0;
+            border-radius: 50% 0 50% 0;
+            box-shadow: 0 0 5px rgba(64, 224, 208, 0.4);
+        }
+        .leaf.l1 { left: -35px; top: 50px; transform: rotate(-35deg); }
+        .leaf.l2 { right: -35px; top: 90px; transform: rotate(35deg); border-radius: 0 50% 0 50%; }
+
+        .core-main {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #C7003E 20%, #FF9454 70%);
+            border-radius: 50%;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(199, 0, 62, 0.5);
+        }
+
+        .petal-main {
+            position: absolute;
+            width: 30px;
+            height: 100px;
+            background: linear-gradient(to bottom, #FCEE8C, #FFD238);
+            border-radius: 50% 50% 20% 20%;
+            top: -40px;
+            left: 25px;
+            transform-origin: 50% 80px;
+            z-index: 5;
+            box-shadow: 0 0 10px rgba(255, 210, 56, 0.4);
+        }
+
+        /* Pétalos frondosos principales (12 pétalos) */
+        .petal-main:nth-child(1) { transform: rotate(0deg); }
+        .petal-main:nth-child(2) { transform: rotate(30deg); }
+        .petal-main:nth-child(3) { transform: rotate(60deg); }
+        .petal-main:nth-child(4) { transform: rotate(90deg); }
+        .petal-main:nth-child(5) { transform: rotate(120deg); }
+        .petal-main:nth-child(6) { transform: rotate(150deg); }
+        .petal-main:nth-child(7) { transform: rotate(180deg); }
+        .petal-main:nth-child(8) { transform: rotate(210deg); }
+        .petal-main:nth-child(9) { transform: rotate(240deg); }
+        .petal-main:nth-child(10) { transform: rotate(270deg); }
+        .petal-main:nth-child(11) { transform: rotate(300deg); }
+        .petal-main:nth-child(12) { transform: rotate(330deg); }
+
+        @keyframes sway {
+            0% { transform: rotate(-2deg); }
+            100% { transform: rotate(2deg); }
+        }
+
+        /* --- LA CARTA --- */
+        .letter-container {
+            background: rgba(255, 255, 255, 0.9); /* Fondo blanco puro semi-translúcido */
+            border: 3px solid #C7003E; /* Borde Carmesí */
+            border-radius: 25px;
+            padding: 50px;
+            line-height: 2;
+            font-size: 1.25em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            color: #333;
+            text-align: left;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .letter-container p {
+            margin: 0 0 20px 0;
+        }
+
+        .heart-divider {
+            text-align: center;
+            color: #C7003E;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .signature {
+            text-align: right;
+            font-weight: bold;
+            color: #40E0D0; /* Firma Turquesa */
+            font-size: 1.4em;
+            margin-top: 40px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .signature span {
+            color: #C7003E;
+            font-size: 0.8em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background-garden">
+        <div class="b-flower flower-type-1" style="left: 10%; animation-delay: 0s; animation-duration: 18s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div><div class="p p4"></div><div class="c"></div> </div>
+        <div class="b-flower flower-type-1" style="left: 30%; animation-delay: 5s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div><div class="p p4"></div><div class="c"></div> </div>
+        <div class="b-flower flower-type-1" style="left: 55%; animation-delay: 2s; animation-duration: 20s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div><div class="p p4"></div><div class="c"></div> </div>
+        <div class="b-flower flower-type-1" style="left: 80%; animation-delay: 8s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div><div class="p p4"></div><div class="c"></div> </div>
+        <div class="b-flower flower-type-1" style="left: 95%; animation-delay: 12s; animation-duration: 15s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div><div class="p p4"></div><div class="c"></div> </div>
+
+        <div class="b-flower flower-type-2" style="left: 5%; animation-delay: 3s; animation-duration: 22s;"></div>
+        <div class="b-flower flower-type-2" style="left: 22%; animation-delay: 10s;"></div>
+        <div class="b-flower flower-type-2" style="left: 45%; animation-delay: 0s; animation-duration: 19s;"></div>
+        <div class="b-flower flower-type-2" style="left: 68%; animation-delay: 7s;"></div>
+        <div class="b-flower flower-type-2" style="left: 88%; animation-delay: 14s; animation-duration: 25s;"></div>
+
+        <div class="b-flower flower-type-3" style="left: 15%; animation-delay: 6s; animation-duration: 17s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div> </div>
+        <div class="b-flower flower-type-3" style="left: 38%; animation-delay: 1s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div> </div>
+        <div class="b-flower flower-type-3" style="left: 62%; animation-delay: 11s; animation-duration: 21s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div> </div>
+        <div class="b-flower flower-type-3" style="left: 75%; animation-delay: 4s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div> </div>
+        <div class="b-flower flower-type-3" style="left: 92%; animation-delay: 9s; animation-duration: 16s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div> </div>
+        
+        <div class="b-flower flower-type-1" style="left: 20%; animation-delay: 15s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div><div class="p p4"></div><div class="c"></div> </div>
+        <div class="b-flower flower-type-2" style="left: 50%; animation-delay: 18s;"></div>
+        <div class="b-flower flower-type-3" style="left: 85%; animation-delay: 20s;"> <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div> </div>
+    </div>
+
+    <div class="main-gift-container">
+        
+        <center>
+            <h1>Para Marian ❤️🌻</h1>
+            <div class="intro-text">Un ramo virtual para la personita más especial...</div>
+        </center>
+
+        <div class="bouquet">
+            <div class="flower-main left">
+                <div class="stem"> <div class="leaf l1"></div> </div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="core-main"></div>
+            </div>
+
+            <div class="flower-main center">
+                <div class="stem"> <div class="leaf l1"></div> <div class="leaf l2"></div> </div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="core-main"></div>
+            </div>
+
+            <div class="flower-main right">
+                <div class="stem"> <div class="leaf l2"></div> </div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div><div class="petal-main"></div>
+                <div class="core-main"></div>
+            </div>
+        </div>
+
+        <div class="letter-container">
+            <p>Mi Marian,</p>
+            <p>Eres la mas hermosa, preciosa, linda, bella, personita que he conocido.</p>
+            <div class="heart-divider">♥</div>
+            <p>Aunque a veces te sienta lejos, quiero tenerte para toda la vida, en un hogar que ninguno de los 2 pudo tener, animales, plantas, incluso y tal vez algo nuestro, si sabes a lo que me refiero.</p>
+            <p>Gracias por tenerme paciencia, (y te recomiendo tenerme más jeje).</p>
+            
+            <div class="signature"><span>Siempre tuyo,</span><br>Roger.</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
